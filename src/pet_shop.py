@@ -13,12 +13,14 @@ def get_pets_sold(user):
 def increase_pets_sold(user, new_sales):
     user["admin"]["pets_sold"] += new_sales
 
-# # def get_stock_count(user):
-# #     pdb.set_trace()
-# #     total = 0   
-# #     for pet in user:
-# #         total += len(pet["breed"])
+def get_stock_count(user):
+    return len(user["pets"])
+
+def get_pets_by_breed(user, dog):
+    breed_total = []
+    for pet in user:
+        if pet["pets"]["breed"] == dog:
+            breed_total.append(pet)
     
-# #     return .total
-    
-# def get_pets_by_breed(user, breed):
+    return len(breed_total)
+
