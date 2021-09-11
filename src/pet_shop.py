@@ -16,11 +16,9 @@ def increase_pets_sold(user, new_sales):
 def get_stock_count(user):
     return len(user["pets"])
 
-def get_pets_by_breed(user, dog):
-    breed_total = []
-    for pet in user:
-        if pet["pets"]["breed"] == dog:
-            breed_total.append(pet)
-    
-    return len(breed_total)
-
+def get_pets_by_breed(users, breed):
+    number_in_breed = [] 
+    for dog in users["pets"]:
+        if dog["breed"] == breed:
+            number_in_breed.append(dog)
+    return number_in_breed
