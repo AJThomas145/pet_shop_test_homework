@@ -28,6 +28,7 @@ def find_pet_by_name(user, name):
     for dog in user["pets"]:
         if dog["name"] == name:
             return dog
+      
 
 def remove_pet_by_name(user, remove_pet):
     pet_to_delete = None
