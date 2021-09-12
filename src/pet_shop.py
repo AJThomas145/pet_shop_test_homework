@@ -11,8 +11,8 @@ def add_or_remove_cash(user, amount):
 def get_pets_sold(user):
     return user["admin"]["pets_sold"]
 
-def increase_pets_sold(user, new_sales):
-    user["admin"]["pets_sold"] += new_sales
+def increase_pets_sold(user, new_sale):
+    user["admin"]["pets_sold"] += new_sale
 
 def get_stock_count(user):
     return len(user["pets"])
@@ -59,5 +59,10 @@ def customer_can_afford_pet(customer, new_pet):
 
     return False
 
+def sell_pet_to_customer(user, new_sale, customer):
+    add_pet_to_customer(customer, new_sale)
+    increase_pets_sold(user, get_customer_pet_count(customer))
+    remove_customer_cash(customer, new_sale["price"])
+    add_or_remove_cash(user, new_sale["price"])
 
-    
+
